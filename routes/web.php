@@ -122,7 +122,12 @@ Route::group(['prefix' => 'tata-usaha'], function(){
         /**
          * simpan data list spp terbaru
          */
-        route::patch('update/spp/{spp}', 'TU\Spp\MasterSppController@update')->name('tata-usaha.simpan-data.update.spp');
+        route::patch('update/spp/{categorie}', 'TU\Spp\MasterSppController@update')->name('tata-usaha.simpan-data.update.spp');
+
+        /**
+         * simpan spp siswa kedalam database
+         */
+        route::patch('spp/siswa/{categorie}', 'TU\Spp\SppController@update')->name('tata-usaha.simpan-data.spp.siswa');
     });
     /**
      * tampilkan detail informasi siswa

@@ -6,7 +6,9 @@
         <div class="card border-0 shadow">
             <div class="card-body">
                 <h6 class="text-muted">Input Spp Siswa</h6>
-                <form action="" method="post" >
+                <form action="{{route('tata-usaha.simpan-data.spp.siswa', $categorie->id)}}" method="post" >
+                    @csrf
+                    @method('PATCH')
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -39,13 +41,13 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="form-group">
                                 <label for="tahun_ajaran" class="text-muted">Tahun Ajaran</label>
                                 <input type="text" name="tahun_ajaran" class="form-control" value="{{old('tahun_ajaran', $categorie->tahun_ajaran)}}"
                                     placeholder="tahun ajaran" id="">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="psb" class="text-muted">PSB</label>
@@ -110,13 +112,13 @@
 
                                 <div class="form-group">
                                     <label for="total">Yang Harus Dibayar</label>
-                                    <input type="text" name="dibayar" class="form-control" value="{{number_format($categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->rapot + $categorie->daftar_ulang + $categorie->un + $categorie->tahun_ajaran, 2)}}" id="">
+                                    <input type="text" name="dibayar" class="form-control" value="{{number_format($categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->rapot + $categorie->daftar_ulang + $categorie->un , 2)}}" id="">
                                 </div>
                             @else
                                 <div class="form-group">
                                     <label for="total">Yang Harus Dibayar</label>
                                     <input type="text" name="dibayar" class="form-control"
-                                        value="Rp. {{number_format($categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->rapot + $categorie->daftar_ulang + $categorie->tahun_ajaran, 2)}}"
+                                        value="Rp. {{number_format($categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->raport + $categorie->daftar_ulang , 2)}}"
                                         id="">
                                 </div>
                             @endif
@@ -124,6 +126,10 @@
                                 <label for="total">Total Bayar</label>
                                 <input type="text" name="total_bayar" class="form-control" value="{{old('total_bayar')}}" id="">
                             </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-outline-info">Tambah spp siswa</button>
                         </div>
 
                     </div>

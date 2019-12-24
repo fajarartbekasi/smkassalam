@@ -20,8 +20,8 @@ class CreatePembayaransTable extends Migration
             $table->string('bulan',50);
             $table->integer('biaya_semester');
             $table->integer('psb')->nullable();
-            $table->integer('pts_ganjil')->nullable();
             $table->integer('pts_genap')->nullable();
+            $table->integer('pts_ganjil')->nullable();
             $table->integer('spas')->nullable();
             $table->integer('pat')->nullable();
             $table->integer('raport')->nullable();

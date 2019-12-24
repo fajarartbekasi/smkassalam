@@ -14,4 +14,12 @@ class Wsiswa extends Model
    {
        return $this->belongsTo(User::class);
    }
+   public function pembayarans()
+   {
+       return $this->hasOne(Pembayaran::class);
+   }
+   public function categorie()
+   {
+       return $this->hasMany(Categorie::class);
+   }
 }
