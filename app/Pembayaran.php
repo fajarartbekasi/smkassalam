@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pembayaran extends Model
 {
    protected $table = 'pembayarans';
-   protected $guarded = [];
+
+   protected $guarded = [
+   ];
 
    public function wsiswa()
    {
@@ -17,4 +19,5 @@ class Pembayaran extends Model
    {
        return $this->belongsTo(Categorie::class);
    }
+
 }

@@ -47,7 +47,7 @@
                                 <a class="nav-link" href="{{ route('tata-usaha.spp') }}">Master SPP</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Bayaran</a>
+                                <a class="nav-link" href="{{route('tata-usaha.cek-data.spp.siswa')}}">Data Bayaran</a>
                             </li>
                         @endrole
                     </ul>

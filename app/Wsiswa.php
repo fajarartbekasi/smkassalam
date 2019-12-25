@@ -16,10 +16,7 @@ class Wsiswa extends Model
    }
    public function pembayarans()
    {
-       return $this->hasOne(Pembayaran::class);
+       return $this->hasMany(Pembayaran::class);
    }
-   public function categorie()
-   {
-       return $this->hasMany(Categorie::class);
-   }
+
 }

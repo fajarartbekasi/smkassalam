@@ -40,6 +40,8 @@ Route::group(['prefix' => 'tata-usaha'], function(){
          * data master spp
          */
         route::get('spp', 'TU\Spp\MasterSppController@index')->name('tata-usaha.spp');
+
+        route::get('spp/siswa', 'TU\Spp\SppController@index')->name('tata-usaha.cek-data.spp.siswa');
     });
 
     Route::group(['prefix' => 'tampilkan-form'], function(){

@@ -120,12 +120,16 @@
                                     <input type="text" name="dibayar" class="form-control"
                                         value="Rp. {{number_format($categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->raport + $categorie->daftar_ulang , 2)}}"
                                         id="">
+                                        <input type="text" name="harus_dibayar" class="form-control"
+                                            value="{{$categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->raport + $categorie->daftar_ulang}}"
+                                            id="">
                                 </div>
                             @endif
                             <div class="form-group">
                                 <label for="total">Total Bayar</label>
                                 <input type="text" name="total_bayar" class="form-control" value="{{old('total_bayar')}}" id="">
                             </div>
+
                         </div>
 
                         <div class="col-md-12">
