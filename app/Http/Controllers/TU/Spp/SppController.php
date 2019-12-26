@@ -16,11 +16,21 @@ class SppController extends Controller
 
     public function index()
     {
-        $sppSiswas = Pembayaran::paginate(5);
+        $sppSiswas = Wsiswa::with('user','pembayarans', 'siswas')->get();
+        // foreach ($sppSiswas as $sppSiswa) {
 
+        //     dd($sppSiswa->pembayarans->first()->biaya_semester);
+        // }
         return view('tatausaha.spp.siswa.index', compact('sppSiswas'));
     }
+    public function show($id)
+    {
 
+       $detailSpp = $sppSiswas = Wsiswa::with('user','pembayarans', 'siswas')->find($id);
+
+    //    dd($detailSpp->pembayarans->first()->categorie->tahun_ajaran);
+       return view('tatausaha.spp.siswa.show', compact('detailSpp'));
+    }
     public function edit($id)
     {
         $data = [

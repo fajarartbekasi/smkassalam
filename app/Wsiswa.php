@@ -18,5 +18,8 @@ class Wsiswa extends Model
    {
        return $this->hasMany(Pembayaran::class);
    }
-
+   public function siswas()
+   {
+       return $this->hasMany(Siswa::class);
+   }
 }

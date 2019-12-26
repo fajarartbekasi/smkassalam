@@ -42,6 +42,8 @@ Route::group(['prefix' => 'tata-usaha'], function(){
         route::get('spp', 'TU\Spp\MasterSppController@index')->name('tata-usaha.spp');
 
         route::get('spp/siswa', 'TU\Spp\SppController@index')->name('tata-usaha.cek-data.spp.siswa');
+
+        route::get('details/spp/siswa/{wsiswa}', 'TU\Spp\SppController@show')->name('tata-usaha.cek-data.details.spp.siswa');
     });
 
     Route::group(['prefix' => 'tampilkan-form'], function(){
@@ -153,6 +155,10 @@ Route::group(['prefix' => 'tata-usaha'], function(){
      */
     route::delete('hapus/data-spp/{spp}', 'TU\Spp\MasterSppController@destroy')->name('tata-usaha.hapus.data-spp');
 
+    /**
+     * cek report
+     */
+    route::get('cari-report/pertanggal', 'TU\Report\ReportController@periode')->name('tata-usaha.cari-report.pertanggal');
 
 });
 Route::resource('spp', 'Spp\SppController');
