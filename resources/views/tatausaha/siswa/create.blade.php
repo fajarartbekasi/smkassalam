@@ -101,6 +101,17 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="roles">Akses:</label>
+                                <select name="roles" id="roles" class="form-control">
+                                    <option value="">Pleace select one</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <h6 class="text-muted">

@@ -64,22 +64,10 @@
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
-                                @if (Route::has('password.request'))
-                                    <a href="{{route('password.request')}}" class="text-info">
-                                        . lupa sama kata sandi kamu ??
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>
-                    <div class="mb-3 d-flex align-item-centers" >
-                        <h6 class="text-muted">
-                            Belum punya akunnya ??
-                        </h6>
-                        <a href="{{route('register')}}" class="text-info ml-3">
-                            Registrasi
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>

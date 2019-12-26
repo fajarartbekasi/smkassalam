@@ -80,7 +80,7 @@
                             <td>
                                 <a href="{{route('tata-usaha.tampilkan-form.edit.siswa', $siswa->id)}}" class="btn btn-outline-info btn-sm">Edit
                                     Data</a>
-                                <button href="http://" class="btn btn-outline-danger btn-sm">Deleted</button>
+
                             </td>
                         </tr>
                         @endforeach

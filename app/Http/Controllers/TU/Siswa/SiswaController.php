@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\TU\Siswa;
 
+use App\Role;
 use App\User;
 use App\Siswa;
 use App\Kela;
@@ -24,6 +25,7 @@ class SiswaController extends Controller
     }
     public function create()
     {
+        $roles = Role::whereNotIn('name', ['tu','wali murid'])->get();
        /**
         * ambil data kelas
         */
@@ -31,7 +33,7 @@ class SiswaController extends Controller
         /**
          * tampung kedalam form tambah siswa
          */
-       return view('tatausaha.siswa.create', compact('kelas'));
+       return view('tatausaha.siswa.create', compact('kelas','roles'));
     }
     public function store(Request $request)
     {
@@ -59,13 +61,28 @@ class SiswaController extends Controller
         /**
          * buat akun siswa
          */
-
-        $users = User::create([
+        ;
+        if($users = User::create([
             'name'                   =>  $request->input('name'),
             'email'                  =>  $request->input('email'),
             'password'               =>  bcrypt($request->get('password')),
             'email_verified_at'      =>  now(),
-        ]);
+
+        ])){
+            $request->except('roles');
+            $users->syncRoles($request->get('roles'));
+            flash()->success('Pengguna berhasil ditambahkan');
+        }else{
+            flash()->error('Tidak dapat menambahkan pengguna');
+        }
+
+        // $users = User::create([
+        //     'name'                   =>  $request->input('name'),
+        //     'email'                  =>  $request->input('email'),
+        //     'password'               =>  bcrypt($request->get('password')),
+        //     'email_verified_at'      =>  now(),
+
+        // ]);
         /**
          * simpan data wali siswa
          */
