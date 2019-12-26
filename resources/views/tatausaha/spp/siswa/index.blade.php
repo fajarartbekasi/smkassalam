@@ -40,21 +40,21 @@
                             </thead>
                             <tbody>
 
-                                @forelse ($sppSiswas as $sppSiswa)
+                                @foreach ($sppSiswas as $sppSiswa)
                                     <tr>
-                                        <td>{{$sppSiswa->siswas->first()->user->name}}</td>
-                                        <td>{{$sppSiswa->siswas->first()->kela->nama_kelas}} - {{$sppSiswa->siswas->first()->kela->grade}}</td>
-                                        <td>Rp.{{number_format($sppSiswa->pembayarans->first()->biaya_semester, 2)}}</td>
-                                        <td>{{$sppSiswa->pembayarans->first()->created_at->format('Y-m-d')}}</td>
+                                        <td>{{$sppSiswa->wsiswa->first()->siswas->first()->user->name}}</td>
+                                        <td>{{$sppSiswa->wsiswa->first()->siswas->first()->kela->nama_kelas}} - {{$sppSiswa->wsiswa->first()->siswas->first()->kela->grade}}</td>
+                                        <td>Rp.{{number_format($sppSiswa->biaya_semester, 2)}}</td>
+                                        <td>{{$sppSiswa->tgl_bayar}}</td>
                                         <td>
                                             <form action="" method="post">
                                                 <a href="{{route('tata-usaha.cek-data.details.spp.siswa', $sppSiswa->id)}}}" class="btn btn-outline-info btn-sm">Details</a>
                                             </form>
                                         </td>
                                     </tr>
-                                @empty
 
-                                @endforelse
+
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -42,19 +42,25 @@ class SiswaController extends Controller
          */
 
         $this->validate($request,[
-            'name'          => 'required',
-            'email'         => 'required',
-            'password'      => 'required',
-            'nis'           => 'required',
-            'phone'         => 'required',
-            'alamat'        => 'required',
-            'tempat_lahir'  => 'required',
-            'tgl_lahir'     => 'required',
-            'agama'         => 'required',
-            'jenis_kelamin' => 'required',
-            'status'        => 'required',
-            'no_telp'       => 'required',
-            'pekerjaan'     => 'required',
+            'name'                   => 'required',
+            'nama_orangtua'          => 'required',
+            'email'                  => 'required',
+            'password'               => 'required',
+            'nis'                    => 'required',
+            'phone'                  => 'required',
+            'alamat'                 => 'required',
+            'alamat_orangtua'        => 'required',
+            'tempat_lahir'           => 'required',
+            'tempat_lahir_orangtua'  => 'required',
+            'tgl_lahir'              => 'required',
+            'tgl_lahir_orangtua'     => 'required',
+            'agama'                  => 'required',
+            'agama_orangtua'         => 'required',
+            'jenis_kelamin'          => 'required',
+            'jenis_kelamin_orangtua' => 'required',
+            'status'                 => 'required',
+            'no_telp'                => 'required',
+            'pekerjaan_orangtua'     => 'required',
 
         ]);
 
@@ -76,25 +82,19 @@ class SiswaController extends Controller
             flash()->error('Tidak dapat menambahkan pengguna');
         }
 
-        // $users = User::create([
-        //     'name'                   =>  $request->input('name'),
-        //     'email'                  =>  $request->input('email'),
-        //     'password'               =>  bcrypt($request->get('password')),
-        //     'email_verified_at'      =>  now(),
-
-        // ]);
         /**
          * simpan data wali siswa
          */
         $perwalian = Wsiswa::create([
-            'user_id'       => $users->id,
-            'alamat'        => $request->input('alamat'),
-            'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'pekerjaan'     => $request->input('pekerjaan'),
-            'no_telp'       => $request->input('no_telp'),
-            'tempat_lahir'  => $request->input('tempat_lahir'),
-            'tgl_lahir'     => $request->input('tgl_lahir'),
-            'agama'         => $request->input('agama'),
+            'user_id'                => $users->id,
+            'nama_orangtua'          => $request->input('nama_orangtua'),
+            'alamat_orangtua'        => $request->input('alamat_orangtua'),
+            'jenis_kelamin_orangtua' => $request->input('jenis_kelamin_orangtua'),
+            'pekerjaan_orangtua'     => $request->input('pekerjaan_orangtua'),
+            'no_telp'                => $request->input('no_telp'),
+            'tempat_lahir_orangtua'  => $request->input('tempat_lahir_orangtua'),
+            'tgl_lahir_orangtua'     => $request->input('tgl_lahir_orangtua'),
+            'agama_orangtua'         => $request->input('agama_orangtua'),
         ]);
         /**
          * simpan data siswa

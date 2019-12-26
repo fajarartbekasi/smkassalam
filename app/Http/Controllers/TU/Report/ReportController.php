@@ -12,7 +12,7 @@ class ReportController extends Controller
     {
         if ($request->has('tgl_awal')) {
             $pembayaran = Pembayaran::with('categorie','wsiswa')
-                                     ->whereBetween('created_at', [request('tgl_awal'), request('tgl_akhir')])
+                                     ->whereBetween('tgl_bayar', [request('tgl_awal'), request('tgl_akhir')])
                                      ->get();
         }
         $pdf = PDF::loadView('tatausaha.spp.siswa.report', compact('pembayaran'))->setPaper('legal', 'landscape');

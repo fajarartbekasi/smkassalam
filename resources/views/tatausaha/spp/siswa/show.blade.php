@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card border-0 shadow">
                 <div class="card-body">
-                    <h5>Nama Siswa : {{$detailSpp->siswas->first()->user->name}}, {{$detailSpp->siswas->first()->kela->nama_kelas}} - {{$detailSpp->siswas->first()->kela->grade}}</h5>
+                    <h5>Nama Siswa : {{$detailSpp->wsiswa->user->name}}, {{$detailSpp->wsiswa->first()->siswas->first()->kela->nama_kelas}} - {{$detailSpp->wsiswa->first()->siswas->first()->kela->grade}}</h5>
 
                     <h6>
                         Rincian bayaran
@@ -29,54 +29,54 @@
                         </thead>
                         <tbody>
                             <tr>
-                                @if(is_null($detailSpp->pembayarans->first()->biaya_semester))
+                                @if(is_null($detailSpp->biaya_semester))
                                     <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                    <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                <td>{{$detailSpp->pembayarans->first()->bulan}}</td>
-                                @if (is_null($detailSpp->pembayarans->first()->psb))
+                                <td>{{$detailSpp->bulan}}</td>
+                                @if (is_null($detailSpp->psb))
                                     <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->pts_ganjil))
+                                @if (is_null($detailSpp->pts_ganjil))
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->pts_genap))
+                                @if (is_null($detailSpp->pts_genap))
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->spas))
+                                @if (is_null($detailSpp->spas))
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->pat))
+                                @if (is_null($detailSpp->pat))
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->raport))
+                                @if (is_null($detailSpp->raport))
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->un) )
+                                @if (is_null($detailSpp->un) )
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                     <td><span class="badge badge-info text-white">Lunas</span></td>
 
                                 @endif
-                                @if (is_null($detailSpp->pembayarans->first()->daftar_ulang))
+                                @if (is_null($detailSpp->daftar_ulang))
                                 <td><span class="badge badge-danger">Belum Lunas</span></td>
                                 @else
                                 <td><span class="badge badge-info text-white">Lunas</span></td>
                                 @endif
-                                <td>Rp.{{number_format($detailSpp->pembayarans->first()->total_bayar, 2)}}</td>
+                                <td>Rp.{{number_format($detailSpp->total_bayar, 2)}}</td>
                             </tr>
                         </tbody>
                     </table>

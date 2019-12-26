@@ -101,7 +101,10 @@
                         @if ($pembayaran->count('total_bayar') > 1)
                         <td colspan="13" class="text-right">Total Rp. {{number_format($pembayaran->sum('total_bayar'), 2)}}</td>
                         @else
+                        @foreach ($pembayaran as $report)
+
                         <td colspan="13" class="text-right text-muted">Total Rp. Rp.{{number_format($report->total_bayar, 2)}}</td>
+                        @endforeach
                         @endif
                     </tr>
                 </tbody>

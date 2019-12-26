@@ -39,9 +39,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function wsiswa()
+    public function wsiswas()
     {
-        return $this->hasOne(Wsiswa::class);
+        return $this->hasMany(Wsiswa::class);
     }
 
     public function siswas()

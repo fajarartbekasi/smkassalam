@@ -29,6 +29,7 @@ class CreatePembayaransTable extends Migration
             $table->integer('daftar_ulang')->nullable();
             $table->integer('un')->nullable();
             $table->integer('total_bayar');
+            $table->string('tgl_bayar', 15);
             $table->timestamps();
         });
     }

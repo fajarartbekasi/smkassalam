@@ -16,17 +16,17 @@ class SppController extends Controller
 
     public function index()
     {
-        $sppSiswas = Wsiswa::with('user','pembayarans', 'siswas')->get();
-        // foreach ($sppSiswas as $sppSiswa) {
+        // $sppSiswas = Siswa::with('wsiswa','user');
 
-        //     dd($sppSiswa->pembayarans->first()->biaya_semester);
-        // }
+        $sppSiswas = Pembayaran::all();
         return view('tatausaha.spp.siswa.index', compact('sppSiswas'));
     }
     public function show($id)
     {
 
-       $detailSpp = $sppSiswas = Wsiswa::with('user','pembayarans', 'siswas')->find($id);
+    //    $detailSpp = Siswa::with('wsiswa','user')->find($id);
+
+    $detailSpp = Pembayaran::find($id);
 
     //    dd($detailSpp->pembayarans->first()->categorie->tahun_ajaran);
        return view('tatausaha.spp.siswa.show', compact('detailSpp'));
@@ -46,7 +46,7 @@ class SppController extends Controller
             'wsiswa_id'             => 'required',
             'bulan'                 => 'required',
             'total_bayar'           => 'required',
-            // 'tahun_ajaran'          => 'required',
+            'tahun_ajaran'          => 'required',
         ]);
 
 
@@ -63,7 +63,8 @@ class SppController extends Controller
             'raport'                    => $request->input('raport'),
             'daftar_ulang'              => $request->input('daftar_ulang'),
             'total_bayar'               => $request->input('total_bayar'),
-            // 'tahun_ajaran'              => $request->input('tahun_ajaran'),
+            'tahun_ajaran'              => $request->input('tahun_ajaran'),
+            'tgl_bayar'                 => $request->input('tgl_bayar'),
         ]);
 
         if ($spp->save()) {

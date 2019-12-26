@@ -40,9 +40,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tata-usaha.cek-data.kelas') }}">Master Kelas</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tata-usaha.cek-data.staff') }}">Master Staff</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tata-usaha.spp') }}">Master SPP</a>
                             </li>

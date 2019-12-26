@@ -16,13 +16,14 @@ class CreateWsiswasTable extends Migration
         Schema::create('wsiswas', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('alamat');
-            $table->string('jenis_kelamin', 15);
-            $table->string('pekerjaan', 100);
+            $table->string('nama_orangtua', 100);
+            $table->string('alamat_orangtua');
+            $table->string('jenis_kelamin_orangtua', 15);
+            $table->string('pekerjaan_orangtua', 100);
             $table->string('no_telp', 15);
-            $table->string('tempat_lahir', 100);
-            $table->string('tgl_lahir');
-            $table->string('agama', 50);
+            $table->string('tempat_lahir_orangtua', 100);
+            $table->string('tgl_lahir_orangtua');
+            $table->string('agama_orangtua', 50);
             $table->timestamps();
 
         });

@@ -27,16 +27,10 @@ class MasterSppController extends Controller
             'kela_id'               => 'required',
             'tahun_ajaran'          => 'required',
             'keterangan'            => 'required',
-            'psb'                   => 'required',
-            'pts_ganjil'            => 'required',
-            'pts_genap'             => 'required',
-            'spas'                  => 'required',
-            'pat'                   => 'required',
-            'raport'                => 'required',
-            'daftar_ulang'          => 'required',
-            'un'                    => 'required',
             'biaya_semester'        => 'required',
         ]);
+
+
 
         $lisSpp = Categorie::create(
             [
