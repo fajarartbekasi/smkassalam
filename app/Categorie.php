@@ -8,10 +8,24 @@ class Categorie extends Model
 {
     protected $table = 'categories';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'kela_id',
+        'tahun_ajaran',
+        'keterangan',
+        'biaya_semester',
+        'psb',
+        'pts_ganjil',
+        'pts_genap',
+        'spas',
+        'pat',
+        'raport',
+        'daftar_ulang',
+        'un',
+    ];
 
     public function kela()
     {
         return $this->belongsTo(Kela::class);
     }
+
 }

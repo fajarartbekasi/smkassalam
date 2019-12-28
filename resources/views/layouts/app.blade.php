@@ -40,14 +40,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tata-usaha.cek-data.kelas') }}">Master Kelas</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tata-usaha.cek-data.staff') }}">Master Staff</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tata-usaha.spp') }}">Master SPP</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Bayaran</a>
+                                <a class="nav-link" href="{{route('tata-usaha.cek-data.spp.siswa')}}">Data Bayaran</a>
                             </li>
                         @endrole
                     </ul>
@@ -59,11 +59,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li>
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

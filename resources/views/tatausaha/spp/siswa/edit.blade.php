@@ -41,13 +41,13 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="tahun_ajaran" class="text-muted">Tahun Ajaran</label>
                                 <input type="text" name="tahun_ajaran" class="form-control" value="{{old('tahun_ajaran', $categorie->tahun_ajaran)}}"
                                     placeholder="tahun ajaran" id="">
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="psb" class="text-muted">PSB</label>
@@ -108,6 +108,13 @@
                             </div>
                         </div>
                         <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="biaya_semester" class="text-muted">Tanggal Bayar</label>
+                                <input type="date" name="tgl_bayar" class="form-control"
+                                    value="{{old('tgl_bayar')}}"id="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             @if ($categorie->nama_kelas == 'IX')
 
                                 <div class="form-group">
@@ -120,12 +127,16 @@
                                     <input type="text" name="dibayar" class="form-control"
                                         value="Rp. {{number_format($categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->raport + $categorie->daftar_ulang , 2)}}"
                                         id="">
+                                        <input type="hidden" name="harus_dibayar" class="form-control"
+                                            value="{{$categorie->bulan + $categorie->biaya_semester + $categorie->psb + $categorie->pts_ganjil + $categorie->pts_genap + $categorie->spas + $categorie->pat + $categorie->raport + $categorie->daftar_ulang}}"
+                                            id="">
                                 </div>
                             @endif
                             <div class="form-group">
                                 <label for="total">Total Bayar</label>
                                 <input type="text" name="total_bayar" class="form-control" value="{{old('total_bayar')}}" id="">
                             </div>
+
                         </div>
 
                         <div class="col-md-12">

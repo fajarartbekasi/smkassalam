@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Siswa;
+use App\Wsiswa;
+use App\Pembayaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::check()){
+        $user = auth()->user()->id;
+        }
+
+        $pembayaran = Siswa::orderBy('user_id', $user)->paginate(5);
+
+        $totalUser = Siswa::all()->count();
+        return view('home', compact('pembayaran', 'totalUser'));
     }
 }

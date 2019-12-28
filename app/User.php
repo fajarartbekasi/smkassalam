@@ -39,14 +39,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function wsiswa()
+    public function wsiswas()
     {
-        return $this->hasOne(Wsiswa::class);
+        return $this->hasMany(Wsiswa::class);
     }
 
-    public function siswa()
+    public function siswas()
     {
-        return $this->hasOne(Siswa::class);
+        return $this->hasMany(Siswa::class);
     }
     public function gurus()
     {

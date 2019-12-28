@@ -19,6 +19,7 @@ class CreatePembayaransTable extends Migration
             $table->unsignedInteger('categorie_id');
             $table->string('bulan',50);
             $table->integer('biaya_semester');
+            $table->string('tahun_ajaran', 20);
             $table->integer('psb')->nullable();
             $table->integer('pts_genap')->nullable();
             $table->integer('pts_ganjil')->nullable();
@@ -28,6 +29,7 @@ class CreatePembayaransTable extends Migration
             $table->integer('daftar_ulang')->nullable();
             $table->integer('un')->nullable();
             $table->integer('total_bayar');
+            $table->string('tgl_bayar', 15);
             $table->timestamps();
         });
     }

@@ -12,14 +12,14 @@ class Wsiswa extends Model
 
    public function user()
    {
-       return $this->belongsTo(User::class);
+       return $this->belongsTo(User::class, 'user_id');
    }
    public function pembayarans()
    {
-       return $this->hasOne(Pembayaran::class);
+       return $this->hasMany(Pembayaran::class);
    }
-   public function categorie()
+   public function siswas()
    {
-       return $this->hasMany(Categorie::class);
+       return $this->hasMany(Siswa::class);
    }
 }

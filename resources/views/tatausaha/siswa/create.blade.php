@@ -101,6 +101,17 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="roles">Akses:</label>
+                                <select name="roles" id="roles" class="form-control">
+                                    <option value="">Pleace select one</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <h6 class="text-muted">
@@ -109,19 +120,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="{{old('name')}}"
+                                <input type="text" name="nama_orangtua" class="form-control" value="{{old('name')}}"
                                     placeholder="Nama..." required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="alamat" class="form-control" value="{{old('email')}}"
+                                <input type="text" name="alamat_orangtua" class="form-control" value="{{old('email')}}"
                                     placeholder="alamat.." required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <select name="jenis_kelamin" id="" class="form-control">
+                                <select name="jenis_kelamin_orangtua" id="" class="form-control">
                                     <option value="">**Pilih Jenis Kelamin**</option>
                                     <option value="Laki-Laki">Laki - Laki</option>
                                     <option value="Perempuan">Perempuan</option>
@@ -130,7 +141,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="pekerjaan" class="form-control" value="{{old('pekerjaan')}}"
+                                <input type="text" name="pekerjaan_orangtua" class="form-control" value="{{old('pekerjaan')}}"
                                     placeholder="pekerjaan.." required>
                             </div>
                         </div>
@@ -142,19 +153,19 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="tempat_lahir" class="form-control"
+                                <input type="text" name="tempat_lahir_orangtua" class="form-control"
                                     value="{{old('tempat_lahir')}}" placeholder="tempat lahir.." required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="date" name="tgl_lahir" class="form-control" value="{{old('tgl_lahir')}}"
+                                <input type="date" name="tgl_lahir_orangtua" class="form-control" value="{{old('tgl_lahir')}}"
                                     required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <select name="agama" id="" class="form-control">
+                                <select name="agama_orangtua" id="" class="form-control">
                                     <option value="">**Pilih Agama**</option>
                                     <option value="ISLAM">ISLAM</option>
                                     <option value="HINDU">HINDU</option>
