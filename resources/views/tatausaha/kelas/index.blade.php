@@ -62,7 +62,9 @@
                             <td>{{$dataKelas->nama_kelas}}</td>
                             <td>{{$dataKelas->grade}}</td>
                             <td>
-                                <form action="{{route('tata-usaha.hapus.data-kelas', $dataKelas->id)}}" method="POST">
+                            <a href="{{route('tata-usaha.tampilkan-form.edit.kelas', $dataKelas->id)}}"
+                                        class="btn btn-outline-info btn-sm">Edit Data</a>
+                                <!-- <form action="{{route('tata-usaha.hapus.data-kelas', $dataKelas->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{route('tata-usaha.tampilkan-form.edit.kelas', $dataKelas->id)}}"
@@ -71,7 +73,7 @@
                                     <button type="submit" class="btn btn-outline-danger btn-sm">
                                         Delete
                                     </button>
-                                </form>
+                                </form> -->
                             </td>
                         </tr>
                         @empty

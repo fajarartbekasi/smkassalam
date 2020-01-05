@@ -69,4 +69,10 @@ class KelasController extends Controller
          */
         return redirect()->back()->with('flash', 'Data kelas di perbaharui terimakasih');
     }
+    public function destroy($id)
+    {
+        $kelas = Kela::destroy($id);
+
+        return redirect()->back()->with('flash', 'Kelas berhasil dihapus terimakasih');
+    }
 }
