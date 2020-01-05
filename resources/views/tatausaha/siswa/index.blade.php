@@ -51,7 +51,7 @@
                                 </a>
                             </td>
                             <td>{{$siswa->user->name}}</td>
-                            <td>{{$siswa->kela->nama_kelas}} {{$siswa->kela->grade}}</td>
+                            <td>{{$siswa->kela->nama_kelas ?? '-'}} {{$siswa->kela->grade ?? '-'}}</td>
                             <td>{{$siswa->alamat}}</td>
                             <td>{{$siswa->tempat_lahir}},{{$siswa->tgl_lahir}}</td>
                             <td>{{$siswa->agama}}</td>

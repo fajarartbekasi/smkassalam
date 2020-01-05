@@ -144,29 +144,38 @@ class SiswaController extends Controller
     }
     public function update(Request $request, $id)
     {
-        User::where('id', $id)->update(array(
-            'name'      => $request->input('name'),
-            'password'  => bcrypt($request->input('email')),
-        ));
+        $siswa = Siswa::find($id);
+        $siswa->user_id = $request->user_id;
+        $siswa->wsiswa_id     = $request->wsiswa_id;
+        $siswa->kela_id       = $request->kela_id;
+        $siswa->nis          = $request->nis;
+        $siswa->phone         = $request->phone;
+        $siswa->alamat        = $request->alamat;
+        $siswa->tempat_lahir  = $request->tempat_lahir;
+        $siswa->tgl_lahir     = $request->tgl_lahir;
+        $siswa->agama         = $request->agama;
+        $siswa->jenis_kelamin = $request->jenis_kelamin;
+        $siswa->status       = $request->status;
 
-        $input  = $request->all();
-        $wsiswa = Wsiswa::find('user_id', $id);
+        $siswa->save();
+        $wsiswa = Wsiswa::where('id', $request->get('wsiswa_id'))->first();
 
-        $updateWsiswa = $wsiswa->update($input);
+        $wsiswa->nama_orangtua          = $request->nama_orangtua;
+        $wsiswa->alamat_orangtua        = $request->alamat_orangtua;
+        $wsiswa->jenis_kelamin_orangtua = $request->jenis_kelamin_orangtua;
+        $wsiswa->pekerjaan_orangtua     = $request->pekerjaan_orangtua;
+        $wsiswa->no_telp                = $request->no_telp;
+        $wsiswa->tempat_lahir_orangtua  = $request->tempat_lahir_orangtua;
+        $wsiswa->tgl_lahir_orangtua     = $request->tgl_lahir_orangtua;
+        $wsiswa->agama_orangtua         = $request->agama_orangtua;
 
-        Siswa::where('user_id', $id)->update(array(
-            'user_id'       => $id,
-            'wsiswa_id'     => $updateWsiswa->id,
-            'kela_id'       => $request->input('kela_id'),
-            'nis'           => $request->input('nis'),
-            'phone'         => $request->input('phone'),
-            'alamat'        => $request->input('alamat'),
-            'tempat_lahir'  => $request->input('tempat_lahir'),
-            'tgl_lahir'     => $request->input('tgl_lahir'),
-            'agama'         => $request->input('agama'),
-            'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'status'        => $request->input('status'),
-        ));
+        $wsiswa->save();
+
+        $user = User::where('id', $request->get('user_id'))->first();
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->save();
 
         return redirect()->back()->with('flash', 'data siswa berhasil di perbaharui terimakasih');
 

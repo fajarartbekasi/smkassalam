@@ -14,7 +14,7 @@
                         Silahkan Lengkapi data diri dibawah ini.
                     </h6>
                 </div>
-                <form action="{{route('admin.simpan-data.update.siswa', $siswa->id)}}" method="post">
+                <form action="{{route('tata-usaha.simpan-data.update.siswa', $siswa->id)}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -36,18 +36,7 @@
                                     placeholder="Email..." required>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" value="" placeholder="****"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="text" name="akses" class="form-control" value="{{$siswa->user->akses}}"
-                                    required readonly>
-                            </div>
-                        </div>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="text" name="alamat" class="form-control" value="{{$siswa->alamat}}"
@@ -81,7 +70,7 @@
                             <div class="form-group">
                                 <select name="jenis_kelamin" id="" class="form-control">
                                     <option value="">**Pilih Jenis Kelamin**</option>
-                                    <option value="Laki - Laki">Laki - Laki</option>
+                                    <option value="Laki-Laki">Laki - Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
@@ -98,14 +87,7 @@
                                     placeholder="+62.." required>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="file" name="avatar" class="form-control" required>
-                                <span class="text-danger">
-                                    File must be : JPEG,PNG,JPG
-                                </span>
-                            </div>
-                        </div>
+
                         <div class="col-md-4">
                             <select name="kela_id" class="form-control" id="">
                                 <option value="">***Pilih Kelas***</option>
@@ -124,29 +106,29 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="{{$siswa->wsiswa->name}}"
+                                <input type="text" name="nama_orangtua" class="form-control" value="{{$siswa->wsiswa->nama_orangtua}}"
                                     placeholder="Nama..." required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="alamat" class="form-control" value="{{$siswa->wsiswa->alamat}}"
+                                <input type="text" name="alamat_orangtua" class="form-control" value="{{$siswa->wsiswa->alamat_orangtua}}"
                                     placeholder="alamat.." required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <select name="jenis_kelamin" id="" class="form-control">
+                                <select name="jenis_kelamin_orangtua" id="" class="form-control">
                                     <option value="">**Pilih Jenis Kelamin**</option>
-                                    <option value="Laki - Laki">Laki - Laki</option>
+                                    <option value="Laki-Laki">Laki - Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="pekerjaan" class="form-control"
-                                    value="{{$siswa->wsiswa->pekerjaan}}" placeholder="pekerjaan.." required>
+                                <input type="text" name="pekerjaan_orangtua" class="form-control"
+                                    value="{{$siswa->wsiswa->pekerjaan_orangtua}}" placeholder="pekerjaan.." required>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -157,19 +139,19 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="tempat_lahir" class="form-control"
-                                    value="{{$siswa->wsiswa->tempat_lahir}}" placeholder="tempat lahir.." required>
+                                <input type="text" name="tempat_lahir_orangtua" class="form-control"
+                                    value="{{$siswa->wsiswa->tempat_lahir_orangtua}}" placeholder="tempat lahir.." required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="date" name="tgl_lahir" class="form-control"
-                                    value="{{$siswa->wsiswa->tgl_lahir}}" required>
+                                <input type="date" name="tgl_lahir_orangtua" class="form-control"
+                                    value="{{$siswa->wsiswa->tgl_lahir_orangtua}}" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <select name="agama" id="" class="form-control">
+                                <select name="agama_orangtua" id="" class="form-control">
                                     <option value="">**Pilih Agama**</option>
                                     <option value="ISLAM">ISLAM</option>
                                     <option value="HINDU">HINDU</option>
@@ -179,6 +161,9 @@
                             </div>
                         </div>
                     </div>
+
+                    <input type="hidden" name="user_id" value="{{$siswa->user->id}}" id="">
+                    <input type="hidden" name="wsiswa_id" value="{{$siswa->wsiswa->id}}" id="">
                     <div class="mt-3 mb-3 d-flex align-item-center">
                         <button type="submit" class="btn btn-outline-info">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"
